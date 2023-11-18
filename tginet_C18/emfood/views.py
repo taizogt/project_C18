@@ -11,3 +11,6 @@ def index(request):
         'foodData': foodData,
     }
     return render(request, "emfood/index.html", my_dict)
+
+def register(request):
+    return render(request, "emfood/register.html")
