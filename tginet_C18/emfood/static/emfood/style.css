@@ -123,46 +123,118 @@ blockquote {
 	padding: 5px;
 	margin: 10px;
 }
-@media screen and (max-width: 767px) {
-#header-container {
-    margin: 0;
-	width: 100%;
-}
-header {
 
+/* 非常食一覧 */
+.food-list{
+    display: flex;
+    flex-direction: row;
+    margin: 10px auto;
+    background-color: #dddddd;
+    padding: 10px;
+    border-radius: 20px;
 }
-#head-inner {
-    padding: 25px 10px;
-	background-color: #214555;
+.food-name{flex-basis: 30%; text-align: center;}
+.food-num{flex-basis: 40%; text-align: center;}
+.food-ex{flex-basis: 30%; text-align: center;}
+.food-list-head{
+    display: flex;
+    flex-direction: row;
+    margin: 10px auto;
 }
-.description {
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
 }
-#content-wrapper {
-margin: 0;
-	width: 100%;}
-main {
-width: 100%;
-	color: #333;
+
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 62.5%;/*rem算出をしやすくするために*/
 }
-#inner {
-	padding: 20px 10px 0 10px;
+
+/* ページ遷移ボタン */
+.btn,
+a.btn,
+button.btn {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.5;
+  position: relative;
+  display: inline-block;
+  padding: 1rem 4rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: #212529;
+  border-radius: 0.5rem;
 }
-aside {
-width: 100%;
+.btn--orange,
+a.btn--orange {
+  color: #fff;
+  background-color: #eb6100;
 }
-#middle-inner {
-	padding: 10px 10px 20px 10px;
+.btn--orange:hover,
+a.btn--orange:hover {
+  color: #fff;
+  background: #f56500;
 }
-h1 {
-	font-size: 20px;
+/* コンテナ */
+.container{
+    display:flex;
+    justify-content: space-between;
 }
-h2 {
-	font-size: 18px;
-}
-h3 {
-	font-size: 16px;
-}
-h4 {
-	font-size: 14px;
-}
+
+@media screen and (max-width: 767px) {
+    #header-container {
+        margin: 0;
+        width: 100%;
+    }
+    header {
+
+    }
+    #head-inner {
+        padding: 25px 10px;
+        background-color: #214555;
+    }
+    .description {
+    }
+    #content-wrapper {
+    margin: 0;
+        width: 100%;}
+    main {
+    width: 100%;
+        color: #333;
+    }
+    #inner {
+        padding: 20px 10px 0 10px;
+    }
+    aside {
+    width: 100%;
+    }
+    #middle-inner {
+        padding: 10px 10px 20px 10px;
+    }
+    h1 {
+        font-size: 20px;
+    }
+    h2 {
+        font-size: 18px;
+    }
+    h3 {
+        font-size: 16px;
+    }
+    h4 {
+        font-size: 14px;
+    }
 }

@@ -16,44 +16,40 @@
                 <div id="header-container">
                     <div id="head-inner">
                         <h1>非常食管理アプリ　</h1>
-                        <p class="description">あなたのＨＰの説明文</p>
+                        <p class="description">～非常食管理とシェアの味方～</p>
                     </div>
                 </div>
             </header>
-                <div id="content-wrapper">
-                    <main>
-                        <div id="inner">
-                            <h2>消費期限の近い非常食があります！！</h2>
-                        </div>
-                    </main>
-                        <aside>
-                            <div id="middle-inner">
-                                <div class="side-title">menu</div>
-                                    <div class="side">
-                                <ul>
-                                    <li>記事ページへのリンク</li>
-                                    <li>記事ページへのリンク</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <table>
-                            <tr>
-                            {% for col in header %}
-                              <th>{{ col }}</th>
-                            {% endfor %}
-                            </tr>
-                      
-                            {% for food in foodData %}
-                            <tr>
-                              <td>{{ food.id }}</td>
-                              <td>{{ food.name }}</td>
-                              <td>{{ food.num }}</td>
-                              <td>{{ food.expire_date }}</td>
-                            </tr>
-                            {% endfor %}
-                        </table>
-                    </aside>
+            <div id="content-wrapper">
+                <main>
+                    {% if True %}
+                    <div id="inner">
+                        <h2>消費期限の近い非常食が X 個あります！！</h2>
+                    </div>
+                    {% endif %}
+                </main>
+                <p></p>
+                <aside>
+                    <h2>非常食一覧</h2>
+                    <div class="food-list-head">
+                        <div class='food-name'>食品名</div>
+                        <div class='food-num'>個数</div>
+                        <div class='food-ex'>消費期限</div>
+                    </div>
+                    {% for food in foodData %}
+                    <div class="food-list">
+                        <div class='food-name'>{{ food.name }}</div>
+                        <div class='food-num'>{{ food.num}}</div>
+                        <div class='food-ex'>{{ food.expire_date }}</div>
+                    </div>
+                    {% endfor %}
+                    
+                </aside>
+                <div class="container">
+                    <p href="" class="btn btn--orange register-btn">登録画面へ</p>
+                    <p href="" class="btn btn--orange share-btn">シェア画面へ</p>
                 </div>
+            </div>
             <footer>© TGI C18</footer>
         </div>
     </body>
