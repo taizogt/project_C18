@@ -25,6 +25,7 @@
                     <h2>登録内容</h2>
                 </aside>
                 {{ message }}
+                <div class=centre>
                 <table>
                     <form action="{% url 'emfood:register' %}" method="post">
                       {% csrf_token %}
@@ -39,6 +40,7 @@
                       </tr>
                     </form>
                   </table>
+                </div>
                 <p></p>
             </div>
             <footer>© TGI C18</footer>

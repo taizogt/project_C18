@@ -194,6 +194,14 @@ a.btn--orange:hover {
     display:flex;
     justify-content: space-between;
 }
+.centre{
+    padding: 0 auto;
+}
+table{
+    /* 中央ぞろえにする */
+    margin: 0 auto;
+    font-size: x-large;
+}
 
 @media screen and (max-width: 767px) {
     #header-container {
