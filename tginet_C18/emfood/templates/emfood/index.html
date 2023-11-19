@@ -22,10 +22,11 @@
             </header>
             <div id="content-wrapper">
                 <main>
-                    {% if True %}
-                    <div id="inner">
-                        <h2>消費期限の近い非常食があります！！</h2>
-                    </div>
+                    {% if out > 0 %}
+                        <h2 style='color: #bb0000;font-weight:bold;'>消費期限が切れた非常食が{{out}}件あります！！</h2>
+                    {% endif %}
+                    {% if near > 0 %}
+                        <h2 style='color: #eedd22;font-weight:bold;'>消費期限が近い非常食が{{near}}件あります！！</h2>
                     {% endif %}
                 </main>
                 <p></p>
@@ -37,17 +38,33 @@
                         <div class='food-ex'>消費期限</div>
                     </div>
                     {% for food in foodData %}
-                    <div class="food-list">
-                        <div class='food-name'>{{ food.name }}</div>
-                        <div class='food-num'>{{ food.num}}</div>
-                        <div class='food-ex'>{{ food.limit_date }}</div>
-                    </div>
+                        {% if 'takahashi' in food.user %}
+                            {% if now > food.limit_date %} 
+                                <div class="food-list" style="background: #bb0000">
+                                    <div class='food-name'>{{ food.name }}</div>
+                                    <div class='food-num'>{{ food.num}}</div>
+                                    <div class='food-ex'>{{ food.limit_date }}</div>
+                                </div>
+                            {% elif month_later_1 > food.limit_date %}
+                                <div class="food-list" style="background: #eedd22">
+                                    <div class='food-name'>{{ food.name }}</div>
+                                    <div class='food-num'>{{ food.num}}</div>
+                                    <div class='food-ex'>{{ food.limit_date }}</div>
+                                </div>
+                            {% else %}
+                                <div class="food-list">
+                                    <div class='food-name'>{{ food.name }}</div>
+                                    <div class='food-num'>{{ food.num}}</div>
+                                    <div class='food-ex'>{{ food.limit_date }}</div>
+                                </div>
+                            {% endif %}
+                        {% endif %}
                     {% endfor %}
                     
                 </aside>
                 <div class="container">
-                    <a href="./register" class="btn btn--orange register-btn">登録画面へ<a>
-                    <a href="" class="btn btn--orange share-btn">シェア画面へ</a>
+                    <a href="./register" class="btn btn--orange register-btn">非常食の登録<a>
+                    <a href="./share" class="btn btn--orange share-btn">シェア画面へ</a>
                 </div>
             </div>
             <footer>© TGI C18</footer>

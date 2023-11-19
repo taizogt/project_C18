@@ -2,15 +2,31 @@ from django.shortcuts import render, redirect
 
 from .models import Emfood
 from .forms import Emfoodadd
+from django.utils import timezone
 
 def index(request):
     # expire_dateをlimit_dateに変更お願いします
     foodData = Emfood.objects.all().order_by('limit_date')
     header = ['ID', '非常食名', '保有数', '消費期限']
+    todays_date = timezone.now().date()
+    month_later_1 = todays_date + timezone.timedelta(days=30)
+    # foodData内でtodays_dateよりもlimit_dateが前のものの個数をきろく
+    outdata = 0
+    for food in foodData:
+        if food.limit_date < todays_date:
+            outdata += 1
+    month1_data = 0
+    for food in foodData:
+        if (food.limit_date < month_later_1) & (food.limit_date > todays_date):
+            month1_data += 1
     my_dict = {
         'title': '保有非常食一覧',
         'header': header,
         'foodData': foodData,
+        'now': todays_date,
+        'month_later_1': month_later_1,
+        'out': outdata,
+        'near': month1_data,
     }
     return render(request, "emfood/index.html", my_dict)
 
