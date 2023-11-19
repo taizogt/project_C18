@@ -4,7 +4,8 @@ from .models import Emfood
 from .forms import Emfoodadd
 
 def index(request):
-    foodData = Emfood.objects.all()
+    # expire_dateをlimit_dateに変更お願いします
+    foodData = Emfood.objects.all().order_by('expire_date')
     header = ['ID', '非常食名', '保有数', '消費期限']
     my_dict = {
         'title': '保有非常食一覧',
@@ -30,3 +31,14 @@ def register(request):
         'message': message,
     }
     return render(request, "emfood/register.html", modelform_dict)
+
+def share(request):
+    foodData = Emfood.objects.filter(shere=1).order_by('expire_date')
+    header = ['ID', '非常食名', '保有数', '消費期限']
+    my_dict = {
+        'title': '保有非常食一覧',
+        'header': header,
+        'foodData': foodData,
+    }
+    return render(request, "emfood/share.html", my_dict)
+

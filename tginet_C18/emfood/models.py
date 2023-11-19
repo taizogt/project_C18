@@ -10,3 +10,4 @@ class Emfood(models.Model):
     user=models.CharField(max_length=10, default="unknown")
     # 時刻なし消費期限
     limit_date=models.DateField(blank=True, null=True )
+    shere=models.BooleanField(default=False)
