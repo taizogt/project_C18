@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from .models import Emfood
+from .forms import Emfoodadd
 
 def index(request):
     foodData = Emfood.objects.all()
@@ -13,4 +14,19 @@ def index(request):
     return render(request, "emfood/index.html", my_dict)
 
 def register(request):
-    return render(request, "emfood/register.html")
+    message = ''
+    
+    if(request.method == 'POST'):
+        form = Emfoodadd(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(to='/emfood')
+        else:
+            message = '登録に失敗しました'
+    
+    modelform_dict = {
+        'title': '非常食登録',
+        'form': Emfoodadd(),
+        'message': message,
+    }
+    return render(request, "emfood/register.html", modelform_dict)
