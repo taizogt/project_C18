@@ -24,7 +24,7 @@
                 <main>
                     {% if True %}
                     <div id="inner">
-                        <h2>消費期限の近い非常食が X 個あります！！</h2>
+                        <h2>消費期限の近い非常食があります！！</h2>
                     </div>
                     {% endif %}
                 </main>
@@ -40,7 +40,7 @@
                     <div class="food-list">
                         <div class='food-name'>{{ food.name }}</div>
                         <div class='food-num'>{{ food.num}}</div>
-                        <div class='food-ex'>{{ food.expire_date }}</div>
+                        <div class='food-ex'>{{ food.limit_date }}</div>
                     </div>
                     {% endfor %}
                     
