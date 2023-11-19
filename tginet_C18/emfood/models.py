@@ -7,7 +7,7 @@ class Emfood(models.Model):
     num = models.IntegerField()
     # 時刻あり期限
     expire_date = models.DateTimeField(blank=True, null=True)
-    user=models.CharField(max_length=10, default="unknown")
+    user=models.CharField(max_length=10, default="takahashi")
     # 時刻なし消費期限
     limit_date=models.DateField(blank=True, null=True )
     shere=models.BooleanField(default=False)
