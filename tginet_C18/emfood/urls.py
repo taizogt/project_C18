@@ -7,4 +7,6 @@ urlpatterns = [
     path("", views.index, name="index"),
     path("register", views.register, name="register"),
     path("share",views.share, name="share" ), 
+
+    #path("", views.delete, name="delete"),
 ]

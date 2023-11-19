@@ -35,12 +35,14 @@
                         <div class='food-name'>食品名</div>
                         <div class='food-num'>個数</div>
                         <div class='food-ex'>消費期限</div>
+                        <div class='food-user'>オーナー</div>
                     </div>
                     {% for food in foodData %}
                     <div class="food-list">
                         <div class='food-name'>{{ food.name }}</div>
                         <div class='food-num'>{{ food.num}}</div>
                         <div class='food-ex'>{{ food.limit_date }}</div>
+                        <div class='food-user'>{{ food.user }}</div>
                     </div>
                     {% endfor %}
                     

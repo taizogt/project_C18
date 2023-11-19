@@ -48,6 +48,7 @@ def register(request):
     }
     return render(request, "emfood/register.html", modelform_dict)
 
+# シェア一覧画面のメソッド
 def share(request):
     foodData = Emfood.objects.filter(shere=1).order_by('limit_date')
     header = ['ID', '非常食名', '保有数', '消費期限']
@@ -58,3 +59,30 @@ def share(request):
     }
     return render(request, "emfood/share.html", my_dict)
 
+# index.htmlでシェアするボタンを押した時に動くメソッド
+def sharefood(request, id):
+    
+    message = ''
+    emfood_obj=Emfood.objects.get(id=id)
+    if (request.method=='POST'):
+        emfood_obj.shere=1
+        emfood_obj.save()
+    
+    return render(request,"emfood/share.html")
+
+def delete(request, id):
+    header = ['ID', '非常食名', '保有数', '消費期限']
+    message = ''
+    emfood_obj = Emfood.objects.get(id=id)
+    if (request.method == 'POST'):
+        emfood_obj.delete()
+        return redirect(to='/emfood')
+    delete_dict = {
+        'title': '削除画面',
+        'header': header,
+        'id': id,
+        'emfood': emfood_obj,
+        'message': message,
+    }
+    return render(request, "emfood/index.html", delete_dict)
+    
