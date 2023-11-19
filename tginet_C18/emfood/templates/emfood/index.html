@@ -56,6 +56,14 @@
                                     <div class='food-name'>{{ food.name }}</div>
                                     <div class='food-num'>{{ food.num}}</div>
                                     <div class='food-ex'>{{ food.limit_date }}</div>
+                                    {% if food.shere != True %}
+                                        <form action="{% url 'emfood:sharefood' %}" method="post">
+                                            {% csrf_token %}
+                                            <input type="submit" value="シェア">
+                                        </form>
+                                    {% else %}
+                                        {% comment %} <input type="checkbox" name="shere"> {% endcomment %}
+                                    {% endif %}
                                 </div>
                             {% endif %}
                         {% endif %}

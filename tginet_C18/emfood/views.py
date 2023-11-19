@@ -68,7 +68,7 @@ def sharefood(request, id):
         emfood_obj.shere=1
         emfood_obj.save()
     
-    return render(request,"emfood/share.html")
+    return render(request,"emfood/share")
 
 def delete(request, id):
     header = ['ID', '非常食名', '保有数', '消費期限']
