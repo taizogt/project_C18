@@ -78,7 +78,7 @@ jobs:
       - name: Install Python dependencies
         run: |
           pip install django
-          python3 rginet_C18/manage.py runserver
+          python3 manage.py runserver
 
       - name: Run Kali Linux Docker Container
         run: |
