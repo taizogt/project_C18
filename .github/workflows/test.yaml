@@ -29,7 +29,7 @@ jobs:
 
       - name: Run Kali Linux Docker Container
         run: |
-          docker run --rm -e DEBIAN_FRONTEND=noninteractive kalilinux/kali-rolling /bin/bash -c "
+          docker run --rm --privileged --network host -e DEBIAN_FRONTEND=noninteractive kalilinux/kali-rolling /bin/bash -c "
           apt update && \
           apt install -y kali-linux-default && \
           nmap -sV -T4 127.0.0.1:8000"
