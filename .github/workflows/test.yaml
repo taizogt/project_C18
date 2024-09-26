@@ -67,6 +67,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Set up Docker
+        uses: docker/setup-buildx-action@v3
+
       - name: Setup python # ワークフローのセクションごとに設定する名前。特に設定する必要はないが、どこでエラーが起きているかを把握する為にも設定しておいた方が良い。
         uses: actions/setup-python@v2 # Pythonのセットアップ
         with:
@@ -74,14 +77,8 @@ jobs:
       
       - name: Install Python dependencies
         run: |
-          python3 -m venv Djangos
-          .\Djangos\Scripts\activate
           pip install django
-          python3 manage.py runserver
-      
-
-      - name: Set up Docker
-        uses: docker/setup-buildx-action@v3
+          python3 rginet_C18/manage.py runserver
 
       - name: Run Kali Linux Docker Container
         run: |
