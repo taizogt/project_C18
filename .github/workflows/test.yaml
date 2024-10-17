@@ -26,7 +26,7 @@ jobs:
         run: ls -R
       - name: Run migrations
         run: |
-          cd ./Tginet_C18
+          cd ./tginet_C18
           python manage.py makemigrations
           python manage.py migrate
 
