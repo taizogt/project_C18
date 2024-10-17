@@ -22,7 +22,8 @@ jobs:
       - name: Install dependencies
         run: |
           pip install Django
-
+      - name: List files
+        run: ls -R
       - name: Run migrations
         run: |
           cd ./Tginet_C18
