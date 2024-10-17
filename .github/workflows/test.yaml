@@ -27,7 +27,7 @@ jobs:
         run: |
           pip install django
           pip install django
-          python3 manage.py runserver 0.0.0.0:8000 &  # サーバーをバックグラウンドで起動
+          python3 manage.py runserver &  # サーバーをバックグラウンドで起動
           # サーバーが立ち上がるまで待機
           until curl -s http://127.0.0.1:8000 > /dev/null; do
             echo "Waiting for Django server to be up..."
