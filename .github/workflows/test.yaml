@@ -39,7 +39,7 @@ jobs:
         run: |
           cd ./tginet_C18
           python manage.py runserver 0.0.0.0:8000 &
-          until curl -s http://127.0.0.1:8000/emfood > /dev/null; do
+          until curl -s http://127.0.0.1:8000/emfood/ > /dev/null; do
             echo "Waiting for Django server to be up..."
             sleep 5
           done
