@@ -18,7 +18,7 @@ jobs:
         uses: docker/setup-buildx-action@v3
 
       - name: Setup python # ワークフローのセクションごとに設定する名前。特に設定する必要はないが、どこでエラーが起きているかを把握する為にも設定しておいた方が良い。
-        uses: actions/setup-python@v2 # Pythonのセットアップ
+        uses: actions/setup-python@v3 # Pythonのセットアップ
         with:
           python-version: "3.12" # Pythonのバージョン指定
       
