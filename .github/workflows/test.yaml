@@ -40,5 +40,5 @@ jobs:
           echo "nmap↓"
           nmap -sV -T4 -p 8000 127.0.0.1
           echo "sqlmap↓"
-          sqlmap -u "http://127.0.0.1:8000" --level=5 --risk=3 --random-agent --tamper=space2comment"
+          sqlmap -u "http://127.0.0.1:8000/admin" --level=5 --risk=3 --random-agent --tamper=space2comment"
 # kali-linux-default
